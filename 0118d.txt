@@ -1,0 +1,46 @@
+#include<iostream>
+#include<vector>
+#include<string>
+#include<algorithm>
+#pragma warning(disable:4996)
+using namespace std;
+struct point {
+	string name;
+	int x;
+	int y;
+	int z;
+};
+
+int cmp(const point &v1, const point &v2) {
+	if (v1.x == v2.x) {
+		if (v1.y == v2.y) {
+			if (v1.z == v2.z) {
+				return v1.name < v2.name;
+			}
+			return v1.z > v2.z;
+		}
+		return v1.y < v2.y;
+	}
+	return v1.x > v2.x;
+}
+int main() {
+	vector<point> c;
+	int cycle;
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cin >> cycle;
+	c.resize(cycle);
+	for (int i = 0; i < cycle; i++) {
+		string name;
+		int  kor, eng, math;
+		cin >> name;
+		cin >> kor >> eng >> math;
+		c.push_back({ name,kor,eng,math });
+	}
+	stable_sort(c.begin(), c.end(), cmp);
+	for (int i = 0; i < cycle; i++) {
+		cout <<c[i].name << "\n";
+	}
+
+	return 0;
+}

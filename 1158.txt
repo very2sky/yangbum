@@ -1,0 +1,31 @@
+#include<cstdio>
+#include<iostream>
+#include<algorithm>
+#pragma warning(disable:4996)
+#include<vector>
+using namespace std; 
+#include <stdlib.h>
+
+
+
+int main() {
+	int k;
+	int n;
+	vector<int> a;
+	int start = 0;
+	scanf("%d %d", &n,&k);
+	for (int i = 1; i <= n; i++) {
+		a.push_back(i);
+	}
+	printf("< ");
+	start =k- 1;
+	while (a.size()>1) {
+		printf("%d ", a[start]);
+		a.erase(a.begin() + start);
+		start += k - 1;
+		start %= a.size();
+
+	}
+	printf("%d >", a[0]);
+	return 0;
+}

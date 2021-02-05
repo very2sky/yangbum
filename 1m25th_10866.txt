@@ -1,0 +1,63 @@
+#include<cstdio>
+#include<iostream>
+using namespace std;
+#include<string>
+#include<deque>
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int a;
+	string h;
+	deque<int> q;
+	cin >> a;
+	for (int i = 0; i < a; i++) {
+		cin >> h;
+		if (h == "push_front") {
+			int b;
+			cin >> b;
+			q.push_front(b);
+		}
+		else if (h == "push_back") {
+			int b;
+			cin >> b;
+			q.push_back(b);
+		}
+		else if (h == "front") {
+			if (!q.empty()) {
+				printf("%d\n", q.front());
+			}
+			else { printf("-1\n"); }
+		}
+		else if (h == "size") {
+			printf("%d\n", q.size());
+		}
+		else if (h == "empty") {
+			if (q.empty()) { printf("1\n"); }
+			else { printf("0\n"); }
+		}
+		else if (h == "back") {
+			if (!q.empty()) {
+				printf("%d\n", q.back());
+			}
+			else { printf("-1\n"); }
+
+		}
+		else if (h == "pop_back") {
+			if (!q.empty()) {
+				printf("%d\n", q.back());
+				q.pop_back();
+			}
+			else { printf("-1\n"); }
+
+		}
+		else if (h == "pop_front") {
+			if (!q.empty()) {
+				printf("%d\n", q.front());
+				q.pop_front();
+			}
+			else { printf("-1\n"); }
+
+		}
+	}
+
+}

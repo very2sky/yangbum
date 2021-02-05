@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<cstdio>
+int arr[1000002];
+using namespace std;
+#pragma warning(disable:4996)
+int main() {
+	int cycle;
+	scanf("%d", &cycle);
+	for (int i = 0; i < cycle; i++) {
+		int b;
+		scanf("%d", &b);
+		arr[i] = b;
+	}
+	int temp;
+	for (int i = 0; i < cycle; i++) {
+		for (int j = i; j < cycle; j++) {
+			if (arr[i] > arr[j]) {
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = arr[i];
+			}
+		}
+	}
+	for (int i = 0; i < cycle; i++) {
+		printf("%d\n", arr[i]);
+	}
+	return 0;
+}
